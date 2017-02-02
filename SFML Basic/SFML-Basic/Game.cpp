@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #ifdef _DEBUG 
 #pragma comment(lib,"sfml-graphics-d.lib") 
 #pragma comment(lib,"sfml-audio-d.lib") 
@@ -14,37 +13,14 @@
 #pragma comment(lib,"sfml-window.lib") 
 #pragma comment(lib,"sfml-network.lib") 
 #endif 
-#pragma comment(lib,"opengl32.lib") 
-#pragma comment(lib,"glu32.lib") 
 
-#include <SFML/Graphics.hpp>
-#include "SFML/OpenGL.hpp" 
-#include <iostream> 
-#define _USE_MATH_DEFINES
+#include "Game.h"
 
 
-
-class Game 
-{
-public:
-	Game();
-	void run();
-private:        
-	void             processEvents(); 
-	void             update(sf::Time); 
-	void             render();
-
-private:        sf::RenderWindow m_window;        
-				sf::CircleShape  m_circle;
-}; 
-int main(int argc, _TCHAR* argv[])
-{ 
-	Game game; 
-	game.run(); 
-}
-Game::Game() : m_window(sf::VideoMode(800, 480), "SMFL Game"), m_circle()
-{
-	m_circle.setRadius(40.f);
+Game::Game() 
+	: m_window{ sf::VideoMode{800, 480}, "SMFL Game" },
+	m_circle{40.0f}
+{	
 	m_circle.setPosition(100.f, 100.f);
 	m_circle.setFillColor(sf::Color::Cyan);
 }
